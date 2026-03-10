@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virgin — Same Track, Different World</title>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&family=Geist:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand:        #E31E23;
+      --accent:       #E31E23;
+      --accent-text:  #ffffff;
+      --pill-on:      rgba(255,255,255,0.92);
+      --pill-off:     rgba(255,255,255,0.32);
+      --pill-text:    #1a1a1a;
+      --nav-offset:   clamp(280px, 36vw, 560px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--brand);
+      font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      color: #fff;
+    }
+
+    .brand-nav {
+      position: fixed;
+      left: 60px;
+      top: 100px;
+      z-index: 100;
+    }
+
+    .brand-nav a {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(36px, 5vw, 82px);
+      font-weight: 400;
+      color: rgba(255,255,255,0.42);
+      text-decoration: none;
+      line-height: 1.14;
+      letter-spacing: -0.02em;
+      transition: color 0.2s ease;
+    }
+    .brand-nav a.active { color: #fff; }
+    .brand-nav a:hover:not(.active) { color: rgba(255,255,255,0.72); }
+
+    .stage-pills {
+      position: fixed;
+      bottom: 40px;
+      left: 60px;
+      display: flex;
+      align-items: center;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .pill {
+      pointer-events: all;
+      background: none;
+      border: none;
+      font-family: 'Geist', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.38);
+      cursor: pointer;
+      padding: 4px 0;
+      transition: color 0.2s;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+    .pill.active { color: #fff; }
+    .pill:hover:not(.active) { color: rgba(255,255,255,0.7); }
+
+    .sep {
+      color: rgba(255,255,255,0.22);
+      font-size: 12px;
+      margin: 0 10px;
+      pointer-events: none;
+    }
+
+    main { margin-left: var(--nav-offset); }
+
+    .stage {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 48px 100px;
+      gap: 20px;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 489px;
+    }
+
+    .card {
+      background: #f5f5f5;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .card-header { display: flex; align-items: center; gap: 12px; }
+
+    .card-title {
+      flex: 1;
+      font-family: 'Oswald', sans-serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--brand);
+      letter-spacing: -0.03em;
+      line-height: 1.14;
+    }
+
+    .card-actions { display: flex; gap: 10px; flex-shrink: 0; }
+
+    .action-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50px;
+      background: var(--brand);
+      border: none;
+      cursor: default;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .card-body {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--brand);
+      opacity: 0.8;
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+
+    .card-btn {
+      background: var(--accent);
+      color: var(--accent-text);
+      border-radius: 60px;
+      padding: 16px;
+      width: 100%;
+      font-family: 'Geist', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      transition: opacity 0.15s;
+    }
+    .card-btn:hover { opacity: 0.88; }
+  </style>
+</head>
+<body>
+
+<nav class="brand-nav">
+  <a href="eurostar.html">Eurostar</a>
+  <a href="virgin.html" class="active">Virgin</a>
+  <a href="trenitalia.html">Trenitalia</a>
+  <a href="uber.html">Uber</a>
+</nav>
+
+<div class="stage-pills" id="pills">
+  <button class="pill active" onclick="go(0)">Booking</button>
+  <span class="sep">—</span>
+  <button class="pill" onclick="go(1)">Prepare</button>
+  <span class="sep">—</span>
+  <button class="pill" onclick="go(2)">Wait</button>
+  <span class="sep">—</span>
+  <button class="pill" onclick="go(3)">Travel</button>
+  <span class="sep">—</span>
+  <button class="pill" onclick="go(4)">Arrive</button>
+</div>
+
+<main>
+
+  <!-- ── STAGE 0: BOOKING ── -->
+  <section class="stage" id="stage-0">
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Notification</span>
+          <div class="card-actions">
+            <button class="action-btn"><svg width="16" height="4" viewBox="0 0 16 4"><circle cx="2" cy="2" r="2" fill="white"/><circle cx="8" cy="2" r="2" fill="white"/><circle cx="14" cy="2" r="2" fill="white"/></svg></button>
+            <button class="action-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1L11 11M11 1L1 11" stroke="white" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+        <p class="card-body">L'appel de Paris<br>Standard: £178.00</p>
+        <button class="card-btn">Let's go →</button>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Notification</span>
+          <div class="card-actions">
+            <button class="action-btn"><svg width="16" height="4" viewBox="0 0 16 4"><circle cx="2" cy="2" r="2" fill="white"/><circle cx="8" cy="2" r="2" fill="white"/><circle cx="14" cy="2" r="2" fill="white"/></svg></button>
+            <button class="action-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1L11 11M11 1L1 11" stroke="white" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+        <p class="card-body">First class: £255.00.<br>The one with the bar.</p>
+        <button class="card-btn">Get it now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STAGE 1: PREPARE ── -->
+  <section class="stage" id="stage-1">
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Notification</span>
+          <div class="card-actions">
+            <button class="action-btn"><svg width="16" height="4" viewBox="0 0 16 4"><circle cx="2" cy="2" r="2" fill="white"/><circle cx="8" cy="2" r="2" fill="white"/><circle cx="14" cy="2" r="2" fill="white"/></svg></button>
+            <button class="action-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1L11 11M11 1L1 11" stroke="white" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+        <p class="card-body">Bonjour countdown: ON 🇫🇷<br>2 days to go. Your French is about<br>to be tested. Get in the mood.</p>
+        <button class="card-btn">Play London → Paris Vibes</button>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Notification</span>
+          <div class="card-actions">
+            <button class="action-btn"><svg width="16" height="4" viewBox="0 0 16 4"><circle cx="2" cy="2" r="2" fill="white"/><circle cx="8" cy="2" r="2" fill="white"/><circle cx="14" cy="2" r="2" fill="white"/></svg></button>
+            <button class="action-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1L11 11M11 1L1 11" stroke="white" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+        <p class="card-body">You're going to Paris! 🥐<br>Gate opens in 2h. Here's what<br>the cool kids do at St Pancras<br>while they wait.</p>
+        <button class="card-btn">Show me</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STAGE 2: WAIT ── -->
+  <section class="stage" id="stage-2">
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Notification</span>
+          <div class="card-actions">
+            <button class="action-btn"><svg width="16" height="4" viewBox="0 0 16 4"><circle cx="2" cy="2" r="2" fill="white"/><circle cx="8" cy="2" r="2" fill="white"/><circle cx="14" cy="2" r="2" fill="white"/></svg></button>
+            <button class="action-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1L11 11M11 1L1 11" stroke="white" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+        <p class="card-body">Welcome to The Clubhouse 🍸<br>Your signature cocktail 'The Signal'<br>is waiting at the bar.<br>DJ set starts at 7:45.</p>
+        <button class="card-btn">See what's on</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── STAGE 3: TRAVEL ── -->
+  <section class="stage" id="stage-3">
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Notification</span>
+          <div class="card-actions">
+            <button class="action-btn"><svg width="16" height="4" viewBox="0 0 16 4"><circle cx="2" cy="2" r="2" fill="white"/><circle cx="8" cy="2" r="2" fill="white"/><circle cx="14" cy="2" r="2" fill="white"/></svg></button>
+            <button class="action-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1L11 11M11 1L1 11" stroke="white" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+        <p class="card-body">Your headphones are under<br>your seat 🎧 Keep them.<br>Pair via Bluetooth<br>for the Virgin Channel.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Notification</span>
+          <div class="card-actions">
+            <button class="action-btn"><svg width="16" height="4" viewBox="0 0 16 4"><circle cx="2" cy="2" r="2" fill="white"/><circle cx="8" cy="2" r="2" fill="white"/><circle cx="14" cy="2" r="2" fill="white"/></svg></button>
+            <button class="action-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1L11 11M11 1L1 11" stroke="white" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+        <p class="card-body">Mood shift: golden hour ✨<br>Cabin lighting is changing<br>for the Channel crossing.<br>Drink from the bar cart?</p>
+        <button class="card-btn">Check the bar list</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STAGE 4: ARRIVE ── -->
+  <section class="stage" id="stage-4">
+    <div class="cards">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Notification</span>
+          <div class="card-actions">
+            <button class="action-btn"><svg width="16" height="4" viewBox="0 0 16 4"><circle cx="2" cy="2" r="2" fill="white"/><circle cx="8" cy="2" r="2" fill="white"/><circle cx="14" cy="2" r="2" fill="white"/></svg></button>
+            <button class="action-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1L11 11M11 1L1 11" stroke="white" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+        <p class="card-body">You made it 🎉🥐<br>+240 Virgin points added.<br>That's nearly a free return.</p>
+        <button class="card-btn">View points</button>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Notification</span>
+          <div class="card-actions">
+            <button class="action-btn"><svg width="16" height="4" viewBox="0 0 16 4"><circle cx="2" cy="2" r="2" fill="white"/><circle cx="8" cy="2" r="2" fill="white"/><circle cx="14" cy="2" r="2" fill="white"/></svg></button>
+            <button class="action-btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1L11 11M11 1L1 11" stroke="white" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+          </div>
+        </div>
+        <p class="card-body">Miss London already?<br>Return from £79.<br>Book in one tap while it's fresh.</p>
+        <button class="card-btn">Book return</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  function go(i) {
+    document.getElementById('stage-' + i).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  const stages = document.querySelectorAll('.stage');
+  const pills  = document.querySelectorAll('#pills .pill');
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = [...stages].indexOf(e.target);
+        pills.forEach((p, i) => p.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: 0.4 });
+
+  stages.forEach(s => obs.observe(s));
+</script>
+
+</body>
+</html>
