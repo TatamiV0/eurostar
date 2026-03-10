@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brand Colour Palettes</title>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      background: #F5F5F5;
+      padding: 48px;
+    }
+
+    h1 {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 40px;
+    }
+
+    .brands {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .brand {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .brand-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .brand-type {
+      font-size: 12px;
+      font-weight: 500;
+      color: #aaa;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .swatches {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 120px;
+    }
+
+    .swatch-color {
+      width: 120px;
+      height: 80px;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .swatch-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: #333;
+      line-height: 1.3;
+    }
+
+    .swatch-hex {
+      font-size: 11px;
+      font-weight: 400;
+      color: #888;
+      font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+    }
+
+    /* Divider between brands */
+    .brand + .brand {
+      border-top: none;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Brand Colour Palettes</h1>
+
+<div class="brands">
+
+  <!-- EUROSTAR -->
+  <div class="brand">
+    <div class="brand-header">
+      <span class="brand-name">Eurostar</span>
+      <span class="brand-type">High-speed rail — London · Paris · Brussels</span>
+    </div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#106DFF;"></div>
+        <div class="swatch-name">Core Blue</div>
+        <div class="swatch-hex">#106DFF</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFC305;"></div>
+        <div class="swatch-name">Core Yellow</div>
+        <div class="swatch-hex">#FFC305</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FBF4D6;"></div>
+        <div class="swatch-name">Cream</div>
+        <div class="swatch-hex">#FBF4D6</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#191919;"></div>
+        <div class="swatch-name">Near Black</div>
+        <div class="swatch-hex">#191919</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFFFFF;"></div>
+        <div class="swatch-name">White</div>
+        <div class="swatch-hex">#FFFFFF</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UBER -->
+  <div class="brand">
+    <div class="brand-header">
+      <span class="brand-name">Uber</span>
+      <span class="brand-type">Ride-hailing — Global</span>
+    </div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#000000;"></div>
+        <div class="swatch-name">Black</div>
+        <div class="swatch-hex">#000000</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFFFFF; border: 1px solid #E5E5E5;"></div>
+        <div class="swatch-name">White</div>
+        <div class="swatch-hex">#FFFFFF</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#276EF1;"></div>
+        <div class="swatch-name">Uber Blue</div>
+        <div class="swatch-hex">#276EF1</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#3AA76D;"></div>
+        <div class="swatch-name">Uber Green</div>
+        <div class="swatch-hex">#3AA76D</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFC043;"></div>
+        <div class="swatch-name">Uber Yellow</div>
+        <div class="swatch-hex">#FFC043</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#D44333;"></div>
+        <div class="swatch-name">Uber Red</div>
+        <div class="swatch-hex">#D44333</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIRGIN TRAINS -->
+  <div class="brand">
+    <div class="brand-header">
+      <span class="brand-name">Virgin Trains</span>
+      <span class="brand-type">UK rail — 1997–2019</span>
+    </div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E31E23;"></div>
+        <div class="swatch-name">Virgin Red</div>
+        <div class="swatch-hex">#E31E23</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFFFFF; border: 1px solid #E5E5E5;"></div>
+        <div class="swatch-name">White</div>
+        <div class="swatch-hex">#FFFFFF</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1A1A1A;"></div>
+        <div class="swatch-name">Charcoal</div>
+        <div class="swatch-hex">#1A1A1A</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRENITALIA -->
+  <div class="brand">
+    <div class="brand-header">
+      <span class="brand-name">Trenitalia</span>
+      <span class="brand-type">National rail — Italy</span>
+    </div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#C8102E;"></div>
+        <div class="swatch-name">Corporate Red</div>
+        <div class="swatch-hex">#C8102E</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#00665B;"></div>
+        <div class="swatch-name">Corporate Green</div>
+        <div class="swatch-hex">#00665B</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2F394F;"></div>
+        <div class="swatch-name">Dark Blue-Grey</div>
+        <div class="swatch-hex">#2F394F</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#A7A8AA;"></div>
+        <div class="swatch-name">Light Grey</div>
+        <div class="swatch-hex">#A7A8AA</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFFFFF; border: 1px solid #E5E5E5;"></div>
+        <div class="swatch-name">White</div>
+        <div class="swatch-hex">#FFFFFF</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

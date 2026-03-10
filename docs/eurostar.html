@@ -96,45 +96,45 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 80px 48px 100px;
-      gap: 20px;
+      padding: 48px 40px 72px;
+      gap: 16px;
     }
 
     /* ── Notification cards ── */
     .cards {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 12px;
       width: 100%;
-      max-width: 489px;
+      max-width: 400px;
     }
 
     .card {
       background: #f5f5f5;
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: 14px;
+      padding: 18px 20px;
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 12px;
     }
 
-    .card-header { display: flex; align-items: center; gap: 12px; }
+    .card-header { display: flex; align-items: center; gap: 10px; }
 
     .card-title {
       flex: 1;
       font-family: 'Oswald', sans-serif;
-      font-size: 36px;
+      font-size: 22px;
       font-weight: 400;
       color: var(--brand);
       letter-spacing: -0.03em;
       line-height: 1.14;
     }
 
-    .card-actions { display: flex; gap: 10px; flex-shrink: 0; }
+    .card-actions { display: flex; gap: 8px; flex-shrink: 0; }
 
     .action-btn {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
       border-radius: 50px;
       background: var(--brand);
       border: none;
@@ -146,22 +146,22 @@
     }
 
     .card-body {
-      font-size: 20px;
-      line-height: 1.6;
+      font-size: 14px;
+      line-height: 1.55;
       color: var(--brand);
       opacity: 0.8;
       text-align: center;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
     }
 
     .card-btn {
       background: var(--accent);
       color: var(--accent-text);
       border-radius: 60px;
-      padding: 16px;
+      padding: 10px 16px;
       width: 100%;
       font-family: 'Geist', sans-serif;
-      font-size: 20px;
+      font-size: 14px;
       font-weight: 500;
       border: none;
       cursor: pointer;
@@ -169,6 +169,30 @@
       transition: opacity 0.15s;
     }
     .card-btn:hover { opacity: 0.88; }
+
+    @media (max-width: 960px) {
+      :root { --nav-offset: clamp(180px, 26vw, 320px); }
+      .brand-nav { left: 32px; top: 80px; }
+      .stage-pills { left: 32px; }
+    }
+
+    @media (max-width: 640px) {
+      :root { --nav-offset: 0; }
+      .brand-nav {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px 14px;
+        padding: 12px 20px;
+        background: var(--brand);
+      }
+      .brand-nav a { font-size: 18px; }
+      main { margin-left: 0; padding-top: 60px; }
+      .stage { padding: 32px 20px 64px; }
+      .stage-pills { left: 20px; bottom: 20px; }
+      .cards { max-width: 100%; }
+    }
   </style>
 </head>
 <body>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virgin Trains – Confirmation</title>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Geist:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #F5F5F5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: sans-serif;
+    }
+    .card {
+      position: relative;
+      width: 489px;
+      height: 360px;
+      background: #E31E23;
+      border-radius: 16px;
+      padding: 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .title {
+      flex: 1;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 1.14;
+      letter-spacing: -1.08px;
+      color: #FFFFFF;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dots {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #fff;
+    }
+    .x-icon {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1;
+    }
+    .body {
+      font-family: 'Geist', sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.6;
+      letter-spacing: -0.4px;
+      color: rgba(255,255,255,0.8);
+      text-align: center;
+      width: 100%;
+    }
+    .btn-wrap {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+    }
+    .btn {
+      background: #FFFFFF;
+      border-radius: 60px;
+      padding: 16px 10px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      color: #1A1A1A;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <span class="title">Notification</span>
+      <div class="actions">
+        <div class="icon-btn">
+          <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        </div>
+        <div class="icon-btn">
+          <span class="x-icon">✕</span>
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      London → Manchester<br>
+      Booking confirmed.<br>
+      Standard. £62.00<br>
+      Arrive 30min before departure
+    </div>
+    <div class="btn-wrap">
+      <div class="btn">View booking</div>
+    </div>
+  </div>
+</body>
+</html>
